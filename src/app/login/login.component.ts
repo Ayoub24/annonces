@@ -8,8 +8,8 @@ import { FormControl } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  firstame = "";
-  lastName = "";
+  firstame: string = "";
+  lastName: string = "";
 
   constructor() { }
 
@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   }
 
   logFirstName(first: any){
+    console.log(first);
     this.firstame = first.control.value;
   }
 

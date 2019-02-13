@@ -1,13 +1,13 @@
 <form>  
     <div id=container>
       <label for="firstName">First Name:</label>
-      <input required ngModel name="firstName" #firstName="ngModel" (change)="logFirstName(firstName)" id="firstName" type="text">
+      <input required ngModel name="firstName" #firstName="ngModel" (change)="logFirstName(firstName)" id="firstName" type="text" pattern="[A-Za-z]{3,10}">
       <div class="alert alert-danger" *ngIf="firstName.touched && !firstName.valid">First Name is required.</div>
 
       <label for="lastName">Last Name:</label>
-      <input required ngModel name="lastName" #lastName="ngModel" (change)="logLastName(lastName)" id="lastName" type="text">
+      <input required ngModel name="lastName" #lastName="ngModel" (change)="logLastName(lastName)" id="lastName" type="text" pattern="[A-Za-z]{3,10}">
       <div class="alert alert-danger" *ngIf="lastName.touched && !lastName.valid">Last Name is required.</div>
-      <button class="btn btn-primary" (click)="alertPopup()" >Register</button>
+      <button class="btn btn-primary" [disabled]="!firstName.valid || !lastName.valid" (click)="alertPopup()" >Register</button>
     </div>
   
 </form>
